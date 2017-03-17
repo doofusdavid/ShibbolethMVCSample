@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using ShibbolethSampleMVC.Models;
+
+namespace ShibbolethSampleMVC.Controllers
+{
+    public class AuthorizeController : Controller
+    {
+        private DatabaseEntities db = new DatabaseEntities();
+        // GET: Authorize
+        public ActionResult Index()
+        {
+            if (SessionWrapper.Current.User == null)
+            {
+                SessionWrapper.Current.LoadUser(Request.Headers);
+
+                var dbUser = db.Users.FirstOrDefault(u => u.Ename == SessionWrapper.Current.User.Ename);
+                if (dbUser != null)
+                {
+                    dbUser.LastLogin = SessionWrapper.Current.LoginTime;
+                    db.Entry(dbUser).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+
+
+            // If debugging, show the contents of the logged in user
+           // return View();
+
+            // In a real application, you would direct the user where you would like them to go
+            return RedirectToRoute(SessionWrapper.Current.Destination.Values);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}

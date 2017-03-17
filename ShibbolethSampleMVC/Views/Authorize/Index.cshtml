@@ -1,0 +1,16 @@
+﻿@model ShibbolethSampleMVC.Models.ShibbolethPrincipal
+
+@{
+    ViewBag.Title = "Authorize";
+}
+
+<h2>Authorize</h2>
+<ul>
+    @{
+        foreach (string key in Model.AllAttributes)
+        {
+            @:
+            <li>@key @Model.AllAttributes[key] </li>
+        }
+    }
+</ul>
