@@ -4,28 +4,33 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ShibbolethSampleMVC.Filter;
+using ShibbolethSampleMVC.Models;
 
 namespace ShibbolethSampleMVC.Controllers
 {
+    /// <summary>
+    /// HomeController represents a Controller where some views are protected, and some are
+    /// not.  In addition, the Forbidden view represents a page protected by a role that doesn't
+    /// exist, so will not be visitable. 
+    /// </summary>
+    /// <seealso cref="System.Web.Mvc.Controller" />
     public class HomeController : Controller
     {
-        [AuthorizationFilter(Auth=true, Roles="admin")]
+        
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        [AuthorizationFilter(Auth=true, Roles = "admin")]
+        public ActionResult Protected()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        [AuthorizationFilter(Auth = true, Roles="nonexistentRole")]
+        public ActionResult Forbidden()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

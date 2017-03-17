@@ -41,7 +41,7 @@ namespace ShibbolethSampleMVC.Filter
             if (!BelongsToRole(Roles))
             {
                 SessionWrapper.Current.Destination = filterContext.RouteData;
-                filterContext.Result = new RedirectResult("~/Authorize");
+                filterContext.Result = new RedirectResult("~/Authorize/UnAuthorized");
                 return;
             }
 
