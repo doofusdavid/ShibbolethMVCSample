@@ -5,6 +5,9 @@ using System.Web;
 
 namespace ShibbolethSampleMVC.Models
 {
+    /// <summary>
+    /// Represents the bare minimum of a User.  You can use other information which Shibboleth provides instead of ename
+    /// </summary>
     public class User
     {
         public int Id { get; set; }

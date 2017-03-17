@@ -7,6 +7,13 @@ using System.Web;
 
 namespace ShibbolethSampleMVC.Models
 {
+    /// <summary>
+    /// ShibbolethPrincipal represents a person returned from Shibboleth.  Iterates through all of the headers
+    /// returned from Shibboleth, and puts them into easily accessible properties.  It receives an Identity and Roles from
+    /// GenericPrincipal.  
+    /// This allows you to debug locally, by replacing 'cdedward' with your own ename, and assiging yourself Roles.
+    /// </summary>
+    /// <seealso cref="System.Security.Principal.GenericPrincipal" />
     public class ShibbolethPrincipal : GenericPrincipal
     {
 
@@ -26,7 +33,7 @@ namespace ShibbolethSampleMVC.Models
         public string Mail { get; set; }
         public string SN { get; set; }
 
-        // and just in case, a collection of ALL the properties from the IDP is maintaned, can be looped through, etc.
+        // If Shibboleth starts sending over more Attributes, you can get them here
         public NameValueCollection AllAttributes { get; set; }
 
         public ShibbolethPrincipal(NameValueCollection headers)
@@ -56,6 +63,8 @@ namespace ShibbolethSampleMVC.Models
             if (dictionary.TryGetValue("colostateEduPersonEID", out myPropertyVal))
             {
                 EID = myPropertyVal;
+
+                // I added the Ename property, as it's more familiar for some than EID
                 Ename = myPropertyVal;
             }
 
@@ -95,12 +104,14 @@ namespace ShibbolethSampleMVC.Models
 
         private static string[] GetRolesFromDatabase()
         {
+            // If running locally, assign your own roles
             if (HttpContext.Current.Request.Headers["Host"].Contains("localhost"))
             {
                 SessionWrapper.Current.Authorized = true;
                 return new string[] { "admin" };
             }
 
+            // Otherwise, get them from the database
             var db = new DatabaseEntities();
             var ename = HttpContext.Current.Request.Headers["colostateEduPersonEID"];
 
@@ -109,6 +120,7 @@ namespace ShibbolethSampleMVC.Models
             var user = db.Users.Include("Roles").SingleOrDefault(u => u.Ename == ename);
             if (user != null)
             {
+                // The user exists, so authorize them, but get their roles.
                 SessionWrapper.Current.Authorized = true;
                 SessionWrapper.Current.LoginTime = DateTime.Now;
 
@@ -116,6 +128,7 @@ namespace ShibbolethSampleMVC.Models
             }
             else
             {
+                // if the user doesn't exist, they are not authorized, and have no roles.
                 SessionWrapper.Current.Authorized = false;
                 return new string[]{""};
             }
@@ -123,11 +136,13 @@ namespace ShibbolethSampleMVC.Models
 
         public static string GetUserIdentityFromHeaders()
         {
+            // If debugging locally, return your ename.
             if (HttpContext.Current.Request.Headers["Host"].Contains("localhost"))
             {
                 // Put your developer credentials here
                 return "cdedward";
             }
+            // Otherwise, return the ename from Shibboleth
             return HttpContext.Current.Request.Headers["colostateEduPersonEID"];
         }
     }
