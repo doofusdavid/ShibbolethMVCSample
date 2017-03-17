@@ -11,6 +11,12 @@
       <string>c:\repos\shibbolethsamplemvc\shibbolethsamplemvc\views\home\index.cshtml</string>
     </ArrayOfString>
     <ArrayOfString>
+      <string>C:\Repos\ShibbolethSampleMVC\ShibbolethSampleMVC\Views\Home\Protected.cshtml</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Repos\ShibbolethSampleMVC\ShibbolethSampleMVC\Views\Home\Forbidden.cshtml</string>
+    </ArrayOfString>
+    <ArrayOfString>
       <string>c:\repos\shibbolethsamplemvc\shibbolethsamplemvc\models\role.cs</string>
     </ArrayOfString>
     <ArrayOfString>
@@ -26,16 +32,37 @@
       <string>c:\repos\shibbolethsamplemvc\shibbolethsamplemvc\views\authorize\index.cshtml</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\repos\shibbolethsamplemvc\shibbolethsamplemvc\models\sessionwrapper.cs</string>
+      <string>C:\Repos\ShibbolethSampleMVC\ShibbolethSampleMVC\Views\Authorize\UnAuthorized.cshtml</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\repos\shibbolethsamplemvc\shibbolethsamplemvc\web.config</string>
+      <string>c:\repos\shibbolethsamplemvc\shibbolethsamplemvc\models\sessionwrapper.cs</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>c:\repos\shibbolethsamplemvc\shibbolethsamplemvc\models\databaseentities.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>ShibbolethSampleMVC\ShibbolethSampleMVC.csproj</string>
+      <string>ShibbolethSampleMVC</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>ShibbolethSampleMVC</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Repos\ShibbolethSampleMVC\ShibbolethSampleMVC\Views\Shared\_Layout.cshtml</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Repos\ShibbolethSampleMVC\ShibbolethSampleMVC\Filter\AuthorizationFilter.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Repos\ShibbolethSampleMVC\ShibbolethSampleMVC\Controllers\AdminController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Repos\ShibbolethSampleMVC\ShibbolethSampleMVC\Views\Admin\Index.cshtml</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Repos\ShibbolethSampleMVC\ShibbolethSampleMVC\Views\Admin\AnotherPage.cshtml</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Repos\ShibbolethSampleMVC\ShibbolethSampleMVC\packages.config</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>
