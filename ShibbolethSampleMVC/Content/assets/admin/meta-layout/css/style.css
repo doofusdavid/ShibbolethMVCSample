@@ -1,0 +1,53 @@
+/**/
+div.wc-layout {
+    float:left; 
+}
+div.wc-layout-container div.wc-layout {
+	width:20%;
+    padding-right:5%;
+}
+
+div.wc-head-container div.wc-layout {
+    width:30%;
+    padding-right:5%;
+}
+
+
+body div.wc-layout:last-child {
+	padding-right:0px;
+}
+
+div.wc-layout img {
+  max-width: 100%;
+}
+ 
+div.wc-layout input {
+    display:block; 
+    display: none;
+
+}
+div.wc-layout label img{
+	border:3px solid white;
+}
+
+div.wc-layout input[type="radio"]:checked+label img{
+	border:3px solid red;
+} 
+
+
+#wc-sidebar-pos .clearfix:after {
+    clear: both;
+    content: ' ';
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+     
+}
+ 
+#wc-sidebar-pos label span {
+    display:block;
+    margin-top:5px;
+}

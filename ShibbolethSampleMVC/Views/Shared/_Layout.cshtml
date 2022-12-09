@@ -1,41 +1,1315 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="https://static.colostate.edu/logo/reslogo-v2/assets/img/csu-responsive-symbol.min.svg" as="image" crossorigin="crossorigin" />
+
+    <style id="critical">
+
+        dt {
+            font-weight: bold;
+        }
+        :root {
+            --scrollwidth: 0px;
+            --primary-color-h: 137;
+            --primary-color-s: 44%;
+            --primary-color-l: 21%;
+            --secondary-color-h: 57;
+            --secondary-color-s: 44%;
+            --secondary-color-l: 62%;
+            --tertiary-color-h: 31;
+            --tertiary-color-s: 100%;
+            --tertiary-color-l: 35%;
+            --accent-color-h: 240;
+            --accent-color-s: 1%;
+            --accent-color-l: 35%;
+            --contrastThreshold: 50%;
+            --lightnessTransform: 10%;
+            --darknessTransform: 7%;
+            --secondarylightnessTransform: 15%;
+            --primary-color-light-l: calc(var(--primary-color-l) + var(--lightnessTransform));
+            --primary-color-dark-l: calc(var(--primary-color-l) - var(--darknessTransform));
+            --secondary-color-light-l: calc(var(--secondary-color-l) + var(--secondarylightnessTransform));
+            --secondary-color-dark-l: calc(var(--secondary-color-l) - var(--darknessTransform));
+            --color-primary: hsl(var(--primary-color-h), var(--primary-color-s), var(--primary-color-l));
+            --color-secondary: hsl(var(--secondary-color-h), var(--secondary-color-s), var(--secondary-color-l));
+            --color-primary-dark: hsl(var(--primary-color-h), var(--primary-color-s), var(--primary-color-dark-l));
+            --color-secondary-dark: hsl(var(--secondary-color-h), var(--secondary-color-s), var(--secondary-color-dark-l));
+            --color-primary-light: hsl(var(--primary-color-h), var(--primary-color-s), var(--primary-color-light-l));
+            --color-secondary-light: hsl(var(--secondary-color-h), var(--secondary-color-s), var(--secondary-color-light-l));
+            --color-secondary-lighter: hsl(var(--secondary-color-h), var(--secondary-color-s), var(--secondary-color-l) + 30%);
+            --color-primary-darker: hsl(var(--primary-color-h), var(--primary-color-s), 16%);
+            --color-base: #595959;
+            --color-headings: var(--color-primary);
+            --color-tertiary: hsl(var(--tertiary-color-h), var(--tertiary-color-s), var(--tertiary-color-l));
+            --color-accent: hsl(var(--accent-color-h), var(--accent-color-s), var(--accent-color-l));
+            --color-tertiary-light: hsl(calc(var(--tertiary-color-h) - 10), var(--tertiary-color-s), calc(var(--tertiary-color-l) + 8%));
+            --color-tertiary-dark: hsl(calc(var(--tertiary-color-h) - 15), var(--tertiary-color-s), var(--tertiary-color-l));
+            --color-tertiary-darker: hsl(calc(var(--tertiary-color-h) - 15), var(--tertiary-color-s), calc(var(--tertiary-color-l) - 10%));
+            --primary-font-family: "Mulish", sans-serif;
+            --primary-font-weight: 549;
+            --primary-font-weight__bold: 800;
+            --primary-font-size: 1.02rem;
+            --primary-letter-spacing: normal;
+            --primary-line-height: 1.5;
+            --secondary-font-weight: 500;
+            --secondary-letter-spacing: normal;
+            --secondary-line-height: var(--primary-line-height);
+            --text-wght: 4;
+            --text-wdth: 0;
+            --text-slnt: 0;
+            --text-opsz: 0;
+            --text-size: 2.5rem;
+            --secondary-font-family: "barlow", sans-serif;
+            --heading-font-family: var(--secondary-font-family);
+            --heading-font-weight: var(--secondary-font-weight);
+            --heading-letter-spacing: .0rem;
+            --heading-line-height: var(--primary-line-height);
+            --button-font-family: var(--primary-font-family);
+            --link-color: var(--color-primary);
+            --link-color-hover: var(--color-primary);
+            --link-color-active: var(--color-primary);
+            --link-color-visited: var(--link-color);
+            --h1-font-size: 2rem;
+            --h2-font-size: 1.75rem;
+            --h3-font-size: 1.5rem;
+            --h4-font-size: 1.35rem;
+            --h5-font-size: 1.25rem;
+            --h6-font-size: 1.15rem;
+            --form-border-radius: 0.2rem;
+            --u-spacing: 1.5rem;
+            --u-spacing-double: 3rem
+                                       }
+
+        @@ media (min-width: 769px) {
+        :root {
+            --h1-font-size: 3rem;
+            --h2-font-size: 2.25rem;
+            --h3-font-size: 2rem;
+            --h4-font-size: 1.85rem;
+            --h5-font-size: 1.7rem;
+            --h6-font-size: 1.5rem
+                                       }
+        }
+
+        .subhead {
+            background-color: var(--color-primary-light);
+            padding: .5rem 0
+        }
+
+        .brandbar {
+            padding-top: .25rem
+        }
+
+        .mainheader {
+            --color-headings: white;
+            --color-base: white;
+            color: var(--color-base);
+            padding: 0;
+            background-color: var(--color-primary);
+            margin-top: 0
+        }
+
+        .mainheader a {
+            color: white
+        }
+
+        .mainheader .signature {
+            --distance: .8rem;
+            margin: .25rem 0;
+            transform: scale(0.8);
+            transform-origin: top left;
+            position: relative;
+            top: var(--distance);
+            margin-top: calc(0px - var(--distance))
+        }
+
+        @@ media (min-width: 768px) {
+        .mainheader .signature {
+            transform: initial;
+            position: static;
+            top: initial;
+            margin-top: initial
+        }
+        }
+
+        .mainheader .nav-container {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column
+        }
+
+        @@ media (min-width: 768px) {
+        .mainheader .nav-container {
+            flex-direction: row-reverse;
+            align-items: center;
+            margin: 0 -.75rem
+        }
+        }
+
+        .mainheader .nav-container nav {
+            margin-right: auto
+        }
+
+        .mainheader .top-nav > div .generated-link {
+            display: none
+        }
+
+        @@ media (min-width: 768px) {
+        .mainheader .top-nav > div .generated-link {
+            display: flex
+        }
+        }
+
+        .mainheader .top-nav > div ul {
+            padding: 0
+        }
+
+        .mainheader .top-nav > div > ul {
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            visibility: hidden;
+            max-height: 0px;
+            overflow: hidden;
+            flex-direction: column
+        }
+
+        .mainheader .top-nav > div > ul.inactive a {
+            transition: background 0s !important
+        }
+
+        @@ media (min-width: 768px) {
+        .mainheader .top-nav > div > ul {
+            visibility: visible;
+            height: auto;
+            max-height: initial;
+            flex-direction: row;
+            overflow: initial
+        }
+        }
+
+        .mainheader .top-nav > div > ul * {
+            display: flex;
+            margin: 0
+        }
+
+        .mainheader .top-nav > div > ul a {
+            font-size: 1rem;
+            letter-spacing: .075rem;
+            text-decoration: none;
+            padding: .75rem .8rem;
+            font-family: var(--primary-font-family),sans-serif;
+            transition: background .1s ease;
+            font-size: .8rem;
+            text-transform: uppercase
+        }
+
+        @@ media (max-width: 767px) {
+        .mainheader .top-nav > div > ul a {
+            background: var(--color-primary-dark)
+        }
+
+        .mainheader .top-nav > div > ul a:hover {
+            background: var(--color-primary)
+        }
+
+        .mainheader .top-nav > div > ul a:focus {
+            outline-offset: -.2rem
+        }
+
+        .mainheader .top-nav > div > ul li > ul a {
+            padding-left: 2rem
+        }
+
+        .mainheader .top-nav > div > ul li > ul a:hover {
+            background: var(--color-primary-light)
+        }
+        }
+
+        @@ media (min-width: 768px) {
+        .mainheader .top-nav > div > ul li:hover > a {
+            background: var(--color-secondary-dark);
+            color: var(--color-primary)
+        }
+        }
+
+        .mainheader .top-nav > div > ul > li {
+            position: relative;
+            align-items: stretch
+        }
+
+        .mainheader .top-nav > div > ul > li > a {
+            align-items: center
+        }
+
+        .mainheader .top-nav > div > ul > li.menu-item-has-children {
+            flex-direction: column
+        }
+
+        .mainheader .top-nav > div > ul > li.menu-item-has-children > a::after {
+            content: "";
+            display: inline;
+            width: 0;
+            height: 0;
+            align-self: center;
+            margin-left: .5rem;
+            vertical-align: middle;
+            border-top: 4px solid;
+            border-right: 4px solid transparent;
+            border-left: 4px solid transparent
+        }
+
+        .mainheader .top-nav > div > ul > li.menu-item-has-children > ul {
+            flex-direction: column
+        }
+
+        @@ media (min-width: 768px) {
+        .mainheader .top-nav > div > ul > li.menu-item-has-children > ul {
+            box-shadow: 0 0.1rem 0.25rem 0 rgba(0,0,0,0.2), 0 0.13rem 0.75rem 0 rgba(0,0,0,0.05);
+            border-top-width: 0px;
+            display: none;
+            position: absolute;
+            z-index: 100;
+            top: 110%;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            min-width: 12rem;
+            background: white
+        }
+
+        .mainheader .top-nav > div > ul > li.menu-item-has-children > ul li, .mainheader .top-nav > div > ul > li.menu-item-has-children > ul a {
+            width: 100%
+        }
+
+        .mainheader .top-nav > div > ul > li.menu-item-has-children > ul a {
+            color: var(--color-primary)
+        }
+        }
+
+        @@ media (min-width: 768px) {
+        .mainheader .top-nav > div > ul > li.menu-item-has-children.active > ul {
+            border-color: rgba(31,77,41,0.2);
+            display: block;
+            top: 100%;
+            opacity: 1;
+            height: auto;
+            overflow: auto;
+            animation: display .2s ease
+        }
+
+        @@ keyframes display {
+        0% {
+            top: 110%;
+            opacity: 0
+        }
+
+        100% {
+            top: 100%;
+            opacity: 1
+        }
+        }
+
+        .mainheader .top-nav > div > ul > li.menu-item-has-children.active > ul a:focus {
+            outline-offset: -.2rem
+        }
+        }
+
+        .mainheader .c-search-header .elementor-widget {
+            margin-bottom: 0
+        }
+
+        @@ media (max-width: 767px) {
+        .mainheader .c-search-header .search {
+            margin-right: -.5rem
+        }
+
+        .mainheader .c-search-header .search form {
+            width: 9rem
+        }
+        }
+
+        .mainheader .c-search-header .brandbar .elementor-inner-column .elementor-element {
+            width: auto
+        }
+
+        .mainheader .c-search-header .brandbar .elementor-inner-column .elementor-element .elementor-widget-wrap {
+            display: flex;
+            align-items: center
+        }
+
+        .mainheader .c-search-header .brandbar .c-header-search-logo {
+            margin-right: auto
+        }
+
+        .mainheader .c-search-header .brandbar .c-header-search {
+            display: flex;
+            align-items: center
+        }
+
+        .mainheader .header-search div, .mainheader .header-search section {
+            height: 100%
+        }
+
+        .mainheader .header-search > div {
+            padding: 0 !important;
+            width: 100%
+        }
+
+        .mainheader .header-search * {
+            padding: 0
+        }
+
+        .mainheader .header-search .elementor-widget-container {
+            display: flex
+        }
+
+        .mainheader .hide {
+            height: 0;
+            width: 0;
+            overflow: hidden;
+            display: block
+        }
+
+        .mainheader .search {
+            display: flex;
+            align-items: center
+        }
+
+        .mainheader .search label {
+            display: none
+        }
+
+        .mainheader .search .input-group {
+            display: flex
+        }
+
+        .mainheader .search form {
+            height: 2rem
+        }
+
+        @@ media (min-width: 992px) {
+        .mainheader .search form {
+            margin-left: auto
+        }
+        }
+
+        .mainheader .search .form-control {
+            background: rgba(255,255,255,0.5);
+            color: var(--color-primary-dark);
+            font-size: .8rem;
+            border-color: var(--color-brand-dark);
+            border-width: 0px 1px;
+            width: 100%;
+            padding-left: 10px;
+            box-shadow: none
+        }
+
+        .mainheader .search .btn {
+            display: block;
+            background-color: var(--color-primary-dark);
+            border: none;
+            border: none;
+            padding: 0px;
+            width: 2rem;
+            margin: 0;
+            height: 100%;
+            color: rgba(255,255,255,0.5)
+        }
+
+        .mainheader .search .btn:hover {
+            background-color: var(--color-primary-light);
+            z-index: auto
+        }
+
+        .mainheader .search .btn i {
+            margin: 0
+        }
+
+        .mainheader nav {
+            background: tomato
+        }
+
+        @@ media (min-width: 768px) {
+        .mainheader nav {
+            background: initial
+        }
+        }
+
+        .mainheader .top-nav > div > ul {
+            transition: max-height 0.5s cubic-bezier(0.6, 0.07, 0.28, 0.98)
+        }
+
+        .mainheader .c-hamburger {
+            margin: .45rem;
+            margin-left: auto
+        }
+
+        @@ media (min-width: 768px) {
+        .mainheader .c-hamburger {
+            display: none
+        }
+        }
+
+        .mainheader nav {
+            width: 100%
+        }
+
+        .mainheader nav li, .mainheader nav li a {
+            width: 100%
+        }
+
+        @@ media (min-width: 768px) {
+        .mainheader nav {
+            width: auto
+        }
+
+        .mainheader nav li, .mainheader nav li a {
+            width: auto
+        }
+        }
+
+        .c-hamburger {
+            display: block;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            width: 40px;
+            height: 32px;
+            font-size: 0;
+            text-indent: -9999px;
+            border-radius: 0;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            color: white;
+            background: rgba(255,255,255,0.15);
+            border-radius: 3px
+        }
+
+        .c-hamburger span {
+            cursor: pointer;
+            display: block;
+            position: absolute;
+            top: calc(50% - 2px);
+            left: 0px;
+            right: 0px;
+            height: 2px;
+            background: currentColor;
+            margin: 1px 6px
+        }
+
+        .c-hamburger span:before, .c-hamburger span:after {
+            position: absolute;
+            display: block;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: currentColor;
+            content: ""
+        }
+
+        .c-hamburger span:before {
+            transition-property: top, transform;
+            top: calc(-400% + 1px)
+        }
+
+        .c-hamburger span:after {
+            transition-property: bottom, transform;
+            bottom: calc(-400% + 1px)
+        }
+
+        .c-hamburger.active span {
+            background-color: transparent
+        }
+
+        .c-hamburger.active span:before {
+            top: 0;
+            transform: rotate(45deg)
+        }
+
+        .c-hamburger.active span:after {
+            bottom: 0;
+            transform: rotate(-45deg)
+        }
+
+        @@ keyframes nav-modal {
+        0% {
+            opacity: 0;
+            transform: scale(0.9)
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1)
+        }
+        }
+
+        @@ media (max-width: 767px) {
+        body.nav-active {
+            overflow: hidden
+        }
+
+        body.nav-active.admin-bar #mainheader .nav-container {
+            top: 46px
+        }
+
+        body.nav-active .mainheader .nav-component {
+            height: 2.8rem
+        }
+
+        body.nav-active .mainheader .nav-container {
+            position: absolute;
+            z-index: 1000;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            animation: nav-modal .4s;
+            animation-timing-function: ease
+        }
+
+        body.nav-active .mainheader .c-hamburger {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            z-index: 1001;
+            background: var(--color-secondary);
+            color: var(--color-primary-dark);
+            margin: 0;
+            margin: .5rem
+        }
+
+        body.nav-active .mainheader nav {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--color-primary-dark);
+            z-index: 1000
+        }
+
+        body.nav-active .mainheader nav:before {
+            content: "MENU:";
+            letter-spacing: .2rem;
+            font-size: .75rem;
+            font-weight: bold;
+            color: #a9bda2;
+            display: block;
+            height: calc(3rem + 1px);
+            width: 100%;
+            background: var(--color-primary-dark);
+            padding: 1rem 0 0 .75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.3)
+        }
+
+        body.nav-active .mainheader nav > div {
+            height: calc(100% - (2rem + 1px));
+            overflow-y: auto;
+            overflow-x: hidden
+        }
+
+        body.nav-active .mainheader nav ul {
+            flex-direction: column;
+            visibility: visible;
+            display: block;
+            height: auto;
+            max-height: initial;
+            min-height: auto
+        }
+
+        body.nav-active .mainheader nav ul a {
+            color: #d6edd1;
+            background: var(--color-primary-darker);
+            width: 100%
+        }
+
+        body.nav-active .mainheader nav ul ul a {
+            background: var(--color-primary-dark)
+        }
+        }
+
+        .mainheader * {
+            margin-top: 0
+        }
+
+        @@ media (max-width: 767px) {
+        .top-navbar {
+            overflow-y: hidden
+        }
+
+        .top-navbar .container {
+            padding: 0
+        }
+        }
+
+        .scrollbar > * {
+            --scrollbarBG: rgba(0,0,0,.0);
+            --thumbBG: rgba(150,150,150,.5);
+            scrollbar-color: var(--thumbBG) var(--scrollbarBG)
+        }
+
+        .scrollbar > *::-webkit-scrollbar {
+            width: 8px
+        }
+
+        .scrollbar > *::-webkit-scrollbar-track {
+            background: var(--scrollbarBG);
+            border-radius: 0px
+        }
+
+        .scrollbar > *::-webkit-scrollbar-thumb {
+            background-color: var(--thumbBG);
+            border-radius: 10px;
+            border: 0px solid var(--scrollbarBG)
+        }
+
+        .azList {
+            background: var(--color-secondary-dark);
+            overflow-x: scroll
+        }
+
+        @@ media (min-width: 768px) {
+        .azList {
+            overflow-x: initial
+        }
+        }
+
+        .azList * {
+            display: flex;
+            align-items: center;
+            align-content: flex-start;
+            margin-top: 0
+        }
+
+        .azList .row {
+            width: 100%
+        }
+
+        .azList .search {
+            margin-left: auto
+        }
+
+        div#responsiveLogo {
+            box-sizing: border-box;
+            display: inherit;
+            align-self: stretch;
+            align-items: center;
+            width: 124px;
+            min-width: 124px
+        }
+
+        div#responsiveLogo * {
+            box-sizing: border-box
+        }
+
+        @@ media screen and (min-width: 600px) {
+        div#responsiveLogo {
+            width: 187px;
+            min-width: 187px
+        }
+        }
+
+        @@ media screen and (min-width: 800px) {
+        div#responsiveLogo {
+            width: 384px;
+            min-width: 384px;
+            width: 375px;
+            min-width: 375px
+        }
+        }
+
+        div#responsiveLogo h1 {
+            padding: 5px 0px 5px 0px;
+            margin: 0;
+            display: block;
+            overflow: hidden;
+            width: 100%
+        }
+
+        div#responsiveLogo h1 a {
+            display: block
+        }
+
+        div#responsiveLogo h1 a:focus {
+            outline-offset: -.2rem
+        }
+
+        div#responsiveLogo [id=svgsignature] {
+            height: 45px
+        }
+
+        #responsiveLogoSubsytem {
+            margin: 8px 0
+        }
+
+        #responsiveLogoSubsytem p, #responsiveLogoSubsytem h2 {
+            font-family: 'prox-light', sans-serif !important;
+            color: white !important;
+            margin: 0px;
+            letter-spacing: .11em;
+            line-height: 1.1em;
+            font-size: 14px;
+            font-weight: 100;
+            text-transform: uppercase
+        }
+
+        #responsiveLogoSubsytem p a, #responsiveLogoSubsytem h2 a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .signature {
+            display: inline-flex;
+            margin-top: .5rem
+        }
+
+        #BrandLogo {
+            display: inline-flex;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            line-height: 0
+        }
+
+        #BrandLogo .fontLarge {
+            font-size: 19px
+        }
+
+        #BrandLogo h1, #BrandLogo h2 {
+            margin: 0;
+            padding: 0
+        }
+
+        #BrandLogo div {
+            display: flex;
+            align-items: stretch;
+            align-content: center
+        }
+
+        #BrandLogo h1 {
+            line-height: 0
+        }
+
+        #BrandLogo h2 {
+            display: flex;
+            align-items: center;
+            line-height: 1;
+            padding-right: 15px
+        }
+
+        #BrandLogo h2:before {
+            content: "";
+            display: block;
+            height: 100%;
+            border-left: 2px solid white;
+            margin-right: 15px;
+            margin-left: 15px
+        }
+
+        .sr-only {
+            border: 0;
+            clip: rect(0, 0, 0, 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px
+        }
+
+        .sr-only:focus {
+            height: auto;
+            width: auto;
+            padding: 1rem;
+            background: cornsilk;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            display: inline-block;
+            z-index: 2;
+            clip: unset
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            font-family: inherit;
+            overflow-wrap: break-word;
+            margin: 0;
+            padding: 0;
+            border-style: solid;
+            border-width: 0;
+            border-color: currentColor
+        }
+
+        body {
+            overflow-x: hidden;
+            font-size: var(--primary-font-size);
+            line-height: 1.5;
+            font-family: var(--primary-font-family);
+            font-weight: var(--primary-font-weight);
+            color: var(--color-base)
+        }
+
+        :root {
+            --text-decoration: none;
+            --link-background-color: transparent;
+            --link-background-color__hover: transparent
+                                                   }
+
+        a {
+            --link-border-width: .05rem;
+            --link-border-width__hover: .2rem;
+            --link-padding-width: .15rem;
+            --link-border-bottom: 1px solid currentColor;
+            --link-border-bottom__hover: 3px solid currentColor;
+            --link-margin-bottom: -2px;
+            color: var(--link-color);
+            transition: color .1s ease;
+            text-decoration: var(--text-decoration) !important
+        }
+
+        a:hover {
+            color: var(--link-color-hover)
+        }
+
+        a:active {
+            color: var(--link-color-active)
+        }
+
+        main a:not(.btn):not([class*="elementor-"]):not(figure>a):not(.pagination a) {
+            --link-background-color__hover: rgba(71, 71, 71, 0.1);
+            transition: color .1s ease-in-out, border .1s ease-in-out, background-color .1s ease-in-out;
+            border-bottom: var(--link-border-bottom)
+        }
+
+        main a:not(.btn):not([class*="elementor-"]):not(figure>a):not(.pagination a):hover, main a:not(.btn):not([class*="elementor-"]):not(figure>a):not(.pagination a):active {
+            background: var(--link-background-color__hover);
+            border-bottom: var(--link-border-bottom__hover);
+            margin-bottom: var(--link-margin-bottom)
+        }
+
+        main :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) > a {
+            font-weight: calc(var(--primary-font-weight) + 150)
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            --text-wght: 130;
+            --text-wdth: 40;
+            --text-wght: 120;
+            --text-wdth: 400;
+            -webkit-font-smoothing: antialiased;
+            font-variation-settings: "wght" var(--text-wght),"wdth" var(--text-wdth),"slnt" var(--text-slnt),"opsz" var(--text-opsz);
+            font-family: var(--heading-font-family);
+            font-weight: var(--heading-font-weight);
+            letter-spacing: var(--heading-letter-spacing);
+            line-height: var(--heading-line-height);
+            color: var(--color-headings)
+        }
+
+        h1, .h1 {
+            font-size: var(--h1-font-size);
+            margin-bottom: .35rem
+        }
+
+        h2, .h2 {
+            font-size: var(--h2-font-size)
+        }
+
+        h3, .h3 {
+            font-size: var(--h3-font-size)
+        }
+
+        h4, .h4 {
+            font-size: var(--h4-font-size)
+        }
+
+        h5, .h5 {
+            font-size: var(--h5-font-size)
+        }
+
+        h6, .h6 {
+            font-size: var(--h6-font-size)
+        }
+
+        blockquote {
+            padding: 3rem;
+            border-left: 1rem solid grey;
+            margin-left: 2rem;
+            margin-right: 2rem
+        }
+
+        ul, ol {
+            padding-left: 1.1rem
+        }
+
+        ul ul, ul ol, ol ul, ol ol {
+            padding-left: 2.2rem
+        }
+
+        p, ul, ol, table, pre, code, dl, blockquote, form, input, label, select, textarea, #wrapper {
+            font-size: var(--primary-font-size);
+            letter-spacing: -.02rem
+        }
+
+        p strong, ul strong, ol strong, table strong, pre strong, code strong, dl strong, blockquote strong, form strong, input strong, label strong, select strong, textarea strong, #wrapper strong {
+            font-weight: var(--primary-font-weight__bold);
+            font-size: calc(var(--primary-font-size) - 1px)
+        }
+
+        .alignright, img.img_right, img.img-right {
+            margin: 3px 5px 10px 17px;
+            padding: 15px;
+            float: right;
+            clear: right
+        }
+
+        p .alignright, p img.img_right, p img.img-right {
+            margin-right: 0
+        }
+
+        .alignleft, img.img_left, img.img-left {
+            margin: 10px 20px 10px 5px;
+            padding: 15px;
+            float: left;
+            clear: left
+        }
+
+        p .alignleft, p img.img_left, p img.img-left {
+            margin-left: 0
+        }
+
+        .wp-caption {
+            margin: 3px 15px 15px 15px;
+            padding: 15px 15px 0 15px;
+            display: inline-block;
+            max-width: 100%
+        }
+
+        .gsc-input a {
+            --link-border-bottom: none
+                                         }
+
+        div.content {
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-wrap: wrap
+        }
+
+        div.content.sidebar-left {
+            flex-direction: row-reverse
+        }
+
+        div.content > * {
+            padding: 1rem 1rem 1rem 1rem
+        }
+
+        div.content > aside {
+            margin-top: 0px;
+            flex-basis: 20rem;
+            flex-grow: 1
+        }
+
+        div.content > main {
+            margin-top: 0px;
+            flex-basis: 0;
+            flex-grow: 999;
+            min-width: calc(60% - 1rem)
+        }
+
+        .container {
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        .container__no-padding {
+            padding-left: 0;
+            padding-right: 0
+        }
+
+        @@ media (min-width: 768px) {
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding-left: 0;
+            padding-right: 0
+        }
+        }
+
+        .container img {
+            max-width: 100%;
+            height: auto
+        }
+
+        header .container {
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        #mainheader .elementor-element.container {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        #mainheader .elementor-element.container > * {
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        #mainheader [class^="elementor"] {
+            position: initial;
+            padding: 0
+        }
+
+        body #mainheader .elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated {
+            padding-top: 0;
+            padding-bottom: 0
+        }
+
+        .elementor-row {
+            display: flex
+        }
+
+        @@ media (min-width: 992px) {
+        .elementor-column.elementor-col-100, .elementor-column[data-col="100"] {
+            width: 100%
+        }
+
+        .elementor-column.elementor-col-66, .elementor-column[data-col="66"] {
+            width: 66.666%
+        }
+
+        .elementor-column.elementor-col-33, .elementor-column[data-col="33"] {
+            width: 33.333%
+        }
+
+        .elementor-column.elementor-col-50, .elementor-column[data-col="50"] {
+            width: 50%
+        }
+
+        .elementor-column.elementor-col-25, .elementor-column[data-col="25"] {
+            width: 25%
+        }
+        }
+        
+    </style>
+
+    <style>
+        body:before {
+            display: none;
+        }
+    </style>
+    <style id="non-critical"></style>
+    <style>
+        .imagelink {
+            --link-border-bottom: none;
+            --link-border-bottom__hover: none;
+        }
+    </style>
+    <title>URL Shortener | Division of Marketing and Communications | Colorado State University</title>
+    <meta name='robots' content='max-image-preview:large' />
+    <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+    <link rel='dns-prefetch' href='//static.colostate.edu' />
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link rel="preload" href="~/Content/assets/css/style-v2.css?ver=1.0.4" as="style">
+    <link rel="stylesheet" href="~/Content/assets/css/style-v2.css?ver=1.0.4" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+
+    <link rel="stylesheet" href="~/Content/assets/css/style-v2.css?ver=1.0.4" media="all">
+
+    <link rel="stylesheet" href="https://static.colostate.edu/fonts/proxima-nova/proxima.css" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+
+    <link rel="stylesheet" href="https://static.colostate.edu/fonts/proxima-nova/proxima.css" media="all">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..900;1,200..900&#038;display=swap" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..900;1,200..900&#038;display=swap" media="all">
+
+    <link rel="stylesheet" href="https://static.colostate.edu/fonts/barlow/barlow.css" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+
+    <link rel="stylesheet" href="https://static.colostate.edu/fonts/barlow/barlow.css" media="all">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css?ver=c695b3fbf1992c0ebcc170fe50abb16c" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css?ver=c695b3fbf1992c0ebcc170fe50abb16c" media="all">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/v4-shims.min.css?ver=c695b3fbf1992c0ebcc170fe50abb16c" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/v4-shims.min.css?ver=c695b3fbf1992c0ebcc170fe50abb16c" media="all">
+
+
+    <link rel="stylesheet" href="~/Content/assets/css/elementor-overrides.css?ver=1.0.0" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+
+    <link rel="stylesheet" href="~/Content/assets/css/elementor-overrides.css?ver=1.0.0" media="all">
+
+    <!--js:matched--><!--test-->
+    <script type='text/javascript' src='~/Content/assets/js/vendor/modernizr-2.7.0.min.js' id='modernizr-js'></script><!-- eo:0--><!-- end segment --><!-- start segment --><!--pvalue-->
+    <!--js:matched--><!--test-->
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script><!-- eo:0--><!-- end segment --><!-- start segment --><!--pvalue-->
+    <!--js:matched--><!--test-->
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.1/jquery-migrate.min.js?ver=3.3.1' id='jquery-migrate-js'></script><!-- eo:0--><!-- end segment --><!-- start segment --><!--pvalue-->
+    <!-- wpbuffer end --><!-- eo:0--><!-- end segment -->	<!-- end wp-head -->
+
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <body class="home page sidebar-primary fonts-loaded blog-layout-img-none v2 elementor_v3 elementor-default elementor-kit-1612 elementor-page elementor-page-35">
+        <a id="skip-to-main" class="sr-only" href="#maincontent">Skip to main content</a>
+
+        <header id="mainheader" class="mainheader banner navbar navbar-default navbar-static-top navbar-main" role="banner">
+            <div class="brandbar">
+                <div class="container" style="position: relative;">
+                    <div class="row">
+                        <div class="signature">
+                            <!-- logo start -->
+                            <section id="BrandLogo" style="height:55px; overflow:hidden">
+                                <div id="responsiveLogo"><h1><a href="https://www.colostate.edu"><img src="https://static.colostate.edu/logo/reslogo-v2/assets/img/csu-responsive-symbol.min.svg" type="image/svg+xml" id="svgsignature" style="width:100%;" alt="Colorado State University" /></a></h1></div><div id="responsiveLogoSubsytem">
+
+                                    <h2 class="fontLarge"><a href="https://s.colostate.edu">URL Shortener</a></h2>
+
+                                </div>
+                            </section>
+                            <!-- logo end -->
+
+                        </div>      
+                        <div class="social">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Protected Page", "Protected", "Home")</li>
-                </ul>
+            <div class="top-navbar">
+                <div class="container">
+                    <div class="row">
+                        <section class="nav-component">
+                            <div class="nav-container">
+                                <nav class="top-nav scrollbar">
+                                    <div class="menu-primary-top-menu-container">
+                                        <ul id="menu-primary-top-menu" class="nav-list">
+                                            <li class="menu-item">
+                                                @Html.ActionLink("Home", "Index", "Home")
+                                            </li>
+                                            <li class="menu-item">
+                                                @Html.ActionLink("Protected Page", "Protected", "Home")
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="maincontent" class="outer-container">
+            <div class="container body-content content">
+                <main class="main" role="main">
+                    @RenderBody()
+                </main>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        @RenderSection("scripts", required: false)
+        <footer class="content-info main-footer" role="contentinfo">
+            <div class="top-footer">
+                <div class="container">
+                    <div class="row s-grid">
+                        <div class="col-lg-12">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+                            <div class="row s-grid">
+                                <div class="col-sm-4 span-1-3">
+                                    <h3>Colleges:</h3>
+                                    <ul>
+                                        <li><a href="https://agsci.colostate.edu/">Agricultural Sciences</a></li>
+                                        <li><a href="https://biz.colostate.edu/">Business</a></li>
+                                        <li><a href="https://www.engr.colostate.edu/">Walter Scott, Jr. College of Engineering</a></li>
+                                        <li><a href="https://www.chhs.colostate.edu/">Health and Human Sciences</a></li>
+                                        <li><a href="https://www.libarts.colostate.edu/">Liberal Arts</a></li>
+                                        <li><a href="https://warnercnr.colostate.edu/">Warner College of Natural Resources</a></li>
+                                        <li><a href="https://www.natsci.colostate.edu/">Natural Sciences</a></li>
+                                        <li><a href="https://vetmedbiosci.colostate.edu/">Veterinary Medicine and Biomedical Sciences</a></li>
+                                    </ul>
+
+                                </div>
+                                <div class="col-sm-4 span-1-3">
+                                    <h3>Schools &amp; Programs:</h3>
+                                    <ul>
+                                        <li><a href="https://graduateschool.colostate.edu/">Graduate School</a></li>
+                                        <li><a href="https://international.colostate.edu/">International Programs</a></li>
+                                        <li><a href="https://www.online.colostate.edu/">Online Degrees and Courses</a></li>
+                                        <li><a href="https://uca.colostate.edu/">School of&nbsp;Music, Theatre and Dance</a></li>
+                                        <li><a href="https://www.engr.colostate.edu/sbme/">School of Biomedical Engineering</a></li>
+                                        <li><a href="https://www.chhs.colostate.edu/soe/">School of Education</a></li>
+                                        <li><a href="https://sustainability.colostate.edu/">School of Global Environmental Sustainability</a></li>
+                                        <li><a href="http://www.ssw.chhs.colostate.edu/">School of Social Work</a></li>
+                                        <li><a href="https://publichealth.colostate.edu/">School of Public Health</a></li>
+                                    </ul>
+
+                                </div>
+                                <div class="col-sm-4 span-1-3">
+                                    <div class="feature-btn"><a href="https://giving.colostate.edu/"><img src="https://static.colostate.edu/site-templates/csu-theme/assets/img/support-csu-nb.svg?v1" alt="Support CSU"></a></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <style>
+                a.btn.btn-covid {
+                    background: #af4323;
+                    color: white !important;
+                    border-color: currentColor;
+                    border-radius: .2rem;
+                    text-decoration: none !important;
+                    text-transform: uppercase;
+                    font-size: 92% !important;
+                }
+
+                footer.main-footer div.bottom-footer ul li {
+                    margin-bottom: .5rem;
+                }
+
+                a.btn.btn-covid:hover {
+                    background: #C6522F;
+                }
+
+                p.copyright {
+                    margin-top: -.5rem
+                }
+            </style>
+            <div class="bottom-footer">
+                <div class="container">
+                    <div class="row s-grid">
+                        <div class="col-md-8 span-2-3">
+                            <ul>
+                                <li><a href="https://safety.colostate.edu/coronavirus/" class="btn btn-covid"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Covid-19 Information</a></li>
+                                <li><a href="https://admissions.colostate.edu">Apply to CSU</a></li>
+                                <li><a href="https://www.colostate.edu/contact">Contact CSU</a></li>
+                                <li><a href="https://www.colostate.edu/disclaimer">Disclaimer</a></li>
+                                <li><a href="https://www.colostate.edu/equal-opportunity">Equal Opportunity</a></li>
+                                <li><a href="https://www.colostate.edu/privacy">Privacy Statement</a></li>
+                                <li><a href="https://www.colostate.edu/accessibility/">Accessibility Statement</a></li>
+                            </ul>
+                            <p class="copyright">&copy; 2022 Colorado State University</p>
+                        </div>
+                        <div class="col-md-4 span-1-3">
+                            <!--<p class="copyright">&copy; @DateTime.Now.Year Colorado State University</p>-->
+                            <div class="bottomlogo"><a href="http://www.colostate.edu/"><img src="https://visit.colostate.edu/wp-content/themes/csu-theme/assets/img/csu-onleline-final.svg" alt="Colorado State University" /></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+    </body>
 </html>
