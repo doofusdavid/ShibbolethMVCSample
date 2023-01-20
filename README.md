@@ -29,6 +29,6 @@ an example of protecting an individual View.  The UnAuthorized View can never be
 exist.  (this is for testing, to make sure you handle a user who has logged in, but doesn't have appropriate permissions)
 
 The rest of the solution is pretty standard MVC code.  I've tried to strip out as many unneeded packages as possible. The 
-solution is available here: https://bitbucket.org/csuwebcom/shibbolethsamplemvc
+solution is available here: https://github.com/doofusdavid/ShibbolethMVCSample
 
 Feel free to contribute issues, pull requests, or add to the Wiki.
